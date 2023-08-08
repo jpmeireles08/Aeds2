@@ -1,0 +1,1 @@
+Os operadores << e >> deslocam os bits para a esquerda e direita e colocam um zero na posição vazia. 

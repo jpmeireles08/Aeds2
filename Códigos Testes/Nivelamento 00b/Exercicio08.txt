@@ -1,0 +1,1 @@
+No primeiro código a variável i é retornada e depois decrementada, no segundo código, a variável i é decrementada e depois retornada.

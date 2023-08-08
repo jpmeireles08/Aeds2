@@ -1,0 +1,1 @@
+O Código em força a conversão da variável C para inteiro e verifica na tabela ascii se é uma vogal, caso seja, ele retorna true.
