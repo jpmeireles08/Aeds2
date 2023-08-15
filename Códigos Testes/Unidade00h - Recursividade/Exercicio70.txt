@@ -1,0 +1,1 @@
+O programa irá printar na tela o 1 e o 2 novamente pois o programa retorna para a última chamada de printRecursivo(1), imprime o valor de i. Após isso o programa retorna para a chamada inicial de printRecursivo(2) e imprime novamente o valor de i.
