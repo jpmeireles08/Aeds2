@@ -1,0 +1,1 @@
+O trecho de código cria um novo array de inteiros chamado vet com espaço para armazenar 5 valores inteiros.

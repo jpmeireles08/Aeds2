@@ -1,0 +1,23 @@
+Variáveis:
+c1 = Endereço de Objeto A (1, "aa")
+c2 = Endereço de Objeto A (1, "aa")
+c3 = Endereço de Objeto B (2, "bb")
+
+Resultado após a segunda chamada de escrever:
+ADDRs:
+c1(Endereço de Objeto A)
+c2(Endereço de Objeto A)
+c3(Endereço de Objeto B)
+
+Variáveis:
+c1 = Endereço de Objeto A (1, "aa")
+c2 = Endereço de Objeto A (1, "aa")
+c3 = Endereço de Objeto B (2, "bb")
+
+c1 e c2 agora apontam para o mesmo objeto.
+
+Resultado após c2.setCodigo(3):
+ATRIBUTOs:
+c1(3 / aa)
+c2(3 / aa)
+c3(2 / bb)

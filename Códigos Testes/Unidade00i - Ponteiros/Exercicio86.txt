@@ -1,0 +1,30 @@
+Variáveis:
+c1 = Endereço de Objeto A (1, "aa")
+vet = [null, null, null, null, null]
+
+Resultado após a primeira impressão (sop):
+Endereço de Objeto A / 1 / aa
+
+Variáveis:
+c1 = Endereço de Objeto A (1, "aa")
+vet = [Endereço de Objeto A (1, "aa"), null, null, null, null]
+
+Primeira iteração do loop:
+Endereço de Objeto A / 1 / aa
+Endereço de Objeto A / 1 / aa
+
+Segunda iteração do loop:
+Endereço de Objeto A / 1 / aa
+Endereço de Objeto A / 1 / aa
+
+Terceira iteração do loop:
+Endereço de Objeto A / 1 / aa
+Endereço de Objeto A / 1 / aa
+
+Quarta iteração do loop:
+Endereço de Objeto A / 1 / aa
+Endereço de Objeto A / 1 / aa
+
+Quinta iteração do loop:
+Endereço de Objeto A / 1 / aa
+Endereço de Objeto A / 1 / aa

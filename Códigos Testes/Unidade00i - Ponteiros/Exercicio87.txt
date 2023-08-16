@@ -1,0 +1,1 @@
+Se os objetos h1 e h2 tiverem valores iguais de hora minuto e segundo a tela irá mostrar "Identicos"

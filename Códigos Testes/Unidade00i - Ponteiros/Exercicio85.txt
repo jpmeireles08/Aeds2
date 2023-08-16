@@ -1,0 +1,9 @@
+Basta trocar o codigo c2 = c1 por c2 = c1.clone().
+
+E na classe Cliente: 
+public Cliente clone (){
+    Cliente resp = new Cliente();
+    resp.codigo = this.codigo;
+    resp.nome = this.nome;
+    return resp;
+}

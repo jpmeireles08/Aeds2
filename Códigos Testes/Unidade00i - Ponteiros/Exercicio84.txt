@@ -1,0 +1,19 @@
+Variáveis:
+c1 = Endereço de Objeto A (1, "aa")
+c2 = Endereço de Objeto A (1, "aa")
+c3 = Endereço de Objeto B (2, "bb")
+
+Resultado após a chamada de setar1(c1):
+c1: (5, "ee")
+c2: (1, "aa")
+c3: (2, "bb")
+
+Variáveis:
+c1 = Endereço de Objeto A (5, "ee")
+c2 = Endereço de Objeto A (1, "aa")
+c3 = Endereço de Objeto B (2, "bb")
+
+Resultado após a chamada de setar2(c2):
+c1: (5, "ee")
+c2: (6, "ff")
+c3: (6, "ff")
