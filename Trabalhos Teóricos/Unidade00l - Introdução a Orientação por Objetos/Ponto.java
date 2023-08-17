@@ -39,7 +39,6 @@ public class Ponto {
     }
 
     public static void main(String[] args) {
-        // Exemplo de uso da classe Ponto
         Ponto ponto1 = new Ponto();
         System.out.println("Ponto 1 - ID: " + ponto1.getId() + ", x: " + ponto1.getX() + ", y: " + ponto1.getY());
 
