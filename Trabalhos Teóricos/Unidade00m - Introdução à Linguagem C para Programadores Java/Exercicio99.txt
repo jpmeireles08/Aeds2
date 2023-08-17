@@ -1,0 +1,17 @@
+Elemento e1;
+e1 > ?
+
+Elemento e1 = new Elemento();
+e1 > | ? |
+
+Elemento[] e2 = new Elemento [3];
+e2 > | ? | ? | ? |
+
+Elemento[] e2 = new Elemento [3];
+ for (int i = 0; i < 3; i ++){
+ e2[i] = new Elemento();
+ }
+e2 > | ? | ? | ? |
+    
+     | x | x | x | 
+

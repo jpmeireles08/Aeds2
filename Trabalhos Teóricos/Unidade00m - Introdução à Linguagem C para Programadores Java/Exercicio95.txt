@@ -1,0 +1,17 @@
+Antes de qualquer operação:
+a: [?, ?, ?, ?, ?, ?, ?, ?, ?, ?]
+b: ?
+
+Após a alocação estática e a primeira atribuição:
+a: [?, ?, ?, ?, 100, ?, ?, ?, ?, ?]
+b: Aponta para o início de 'a'
+
+Após a primeira impressão (printf):
+Saída: 100 -- 100
+
+Após a alocação dinâmica e a segunda atribuição:
+a: [?, ?, ?, ?, 100, ?, ?, ?, ?, ?]
+b: Aponta para um novo bloco de memória alocado dinamicamente
+
+Após a segunda impressão (printf):
+Saída: ? -- 100

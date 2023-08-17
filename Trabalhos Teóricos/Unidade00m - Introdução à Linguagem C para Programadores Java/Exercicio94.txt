@@ -1,0 +1,6 @@
+a = 3.140000
+a (após p receber o endereço de a) = 2.718000
+*p = 2.718000
+*p (após ser definido com NULL e alocar a memoria dinamicamente) = 20.000000
+a = 5.000000
+*q = 5.000000

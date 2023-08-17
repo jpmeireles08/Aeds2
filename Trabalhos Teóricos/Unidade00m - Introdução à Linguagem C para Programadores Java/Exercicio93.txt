@@ -1,0 +1,11 @@
+M:
+| 0.0 | 0.0 | 0.0 |
+| 0.0 | 0.0 | 0.0 |
+| 0.0 | 0.0 | 0.0 |
+
+Depois de todas as iterações
+| 0.0 | 0.0 | 0.0 |
+| 0.0 | 0.0 | 0.0 |
+| 0.0 | 0.0 | 0.0 |
+
+Após percorrer toda a matriz pelo ponteiro p, todos os elementos são inicializados com 0.0
