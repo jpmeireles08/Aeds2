@@ -1,0 +1,1 @@
+Variáveis: Nome > f1, valor > Endereço do objeto Funcionario(5).
