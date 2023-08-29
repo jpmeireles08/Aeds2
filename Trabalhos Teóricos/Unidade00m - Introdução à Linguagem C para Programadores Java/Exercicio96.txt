@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Após as declarações:
 x1: ?
 x2: ?
@@ -52,3 +53,59 @@ Após a liberação de memória:
 x1: Aponta para um bloco de memória alocado dinamicamente, contendo 20
 x2: 14
 x3: Aponta para o mesmo bloco de memória que x2
+=======
+Após as declarações:
+x1: ?
+x2: ?
+x3: ?
+
+Após a alocação dinâmica e a atribuição de x1:
+x1: Aponta para um bloco de memória alocado dinamicamente, contendo 20
+x2: ?
+x3: ?
+
+Após a atribuição de x2:
+x1: Aponta para um bloco de memória alocado dinamicamente, contendo 20
+x2: 20
+x3: ?
+
+Após a alocação dinâmica e a atribuição de x3:
+x1: Aponta para um bloco de memória alocado dinamicamente, contendo 20
+x2: 20
+x3: Aponta para outro bloco de memória alocado dinamicamente, contendo 400 (20 * 20)
+
+Após a atribuição de x3 para o endereço de x2:
+x1: Aponta para um bloco de memória alocado dinamicamente, contendo 20
+x2: 20
+x3: Aponta para o mesmo bloco de memória que x2
+
+Após a atribuição de 15 a x2:
+x1: Aponta para um bloco de memória alocado dinamicamente, contendo 20
+x2: 15
+x3: Aponta para o mesmo bloco de memória que x2
+
+Após a atribuição de 13 & 3 a x2:
+x1: Aponta para um bloco de memória alocado dinamicamente, contendo 20
+x2: 1
+x3: Aponta para o mesmo bloco de memória que x2
+
+Após a atribuição de 13 | 3 a x2:
+x1: Aponta para um bloco de memória alocado dinamicamente, contendo 20
+x2: 15
+x3: Aponta para o mesmo bloco de memória que x2
+
+Após a atribuição de 13 >> 1 a x2:
+x1: Aponta para um bloco de memória alocado dinamicamente, contendo 20
+x2: 7
+x3: Aponta para o mesmo bloco de memória que x2
+
+Após a atribuição de 13 << 1 a x2:
+x1: Aponta para um bloco de memória alocado dinamicamente, contendo 20
+x2: 14
+x3: Aponta para o mesmo bloco de memória que x2
+
+Após a liberação de memória:
+x1: Aponta para um bloco de memória alocado dinamicamente, contendo 20
+x2: 14
+x3: Aponta para o mesmo bloco de memória que x2
+>>>>>>> 8fbfee88ffe680bc490397f48a351d795f5db157

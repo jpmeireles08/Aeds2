@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Elemento e1;
 | | > e1
 
@@ -30,4 +31,38 @@ e4 > | ? | ? | ? |
        |   |   |
        |   |   |
       | |  ?  | |
+=======
+Elemento e1;
+| | > e1
+
+Elemento* e2;
+e2 > ??
+
+Elemento* e2 = (Elemento*) malloc(sizeof(Elemento));
+e2 > | |
+
+Elemento* e2 = (Elemento*) malloc(3*sizeof(Elemento));
+e2 > |x|x|x| 
+
+Elemento e3[3];
+e3 = | ? | ? | ? |
+
+Elemento** e4;
+e4 > ??
+
+Elemento** e4 = (Elemento**) malloc(3*sizeof(Elemento*));
+e4 > | ? | ? | ? |
+       |   |   | 
+       |   |   |
+       x   x   x
+
+Elemento** e4 = (Elemento**) malloc(3*sizeof(Elemento*));
+ e4[0] = (Elemento*) malloc(sizeof(Elemento*));
+ e4[2] = (Elemento*) malloc(sizeof(Elemento*));
+
+e4 > | ? | ? | ? |
+       |   |   |
+       |   |   |
+      | |  ?  | |
+>>>>>>> 8fbfee88ffe680bc490397f48a351d795f5db157
       

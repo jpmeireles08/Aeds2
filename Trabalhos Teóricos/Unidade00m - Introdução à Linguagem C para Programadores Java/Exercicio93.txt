@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 M:
 | 0.0 | 0.0 | 0.0 |
 | 0.0 | 0.0 | 0.0 |
@@ -8,4 +9,16 @@ Depois de todas as iterações
 | 0.0 | 0.0 | 0.0 |
 | 0.0 | 0.0 | 0.0 |
 
+=======
+M:
+| 0.0 | 0.0 | 0.0 |
+| 0.0 | 0.0 | 0.0 |
+| 0.0 | 0.0 | 0.0 |
+
+Depois de todas as iterações
+| 0.0 | 0.0 | 0.0 |
+| 0.0 | 0.0 | 0.0 |
+| 0.0 | 0.0 | 0.0 |
+
+>>>>>>> 8fbfee88ffe680bc490397f48a351d795f5db157
 Após percorrer toda a matriz pelo ponteiro p, todos os elementos são inicializados com 0.0

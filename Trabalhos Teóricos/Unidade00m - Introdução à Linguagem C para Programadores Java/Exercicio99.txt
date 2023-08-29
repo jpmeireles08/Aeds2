@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Elemento e1;
 e1 > ?
 
@@ -15,3 +16,22 @@ e2 > | ? | ? | ? |
     
      | x | x | x | 
 
+=======
+Elemento e1;
+e1 > ?
+
+Elemento e1 = new Elemento();
+e1 > | ? |
+
+Elemento[] e2 = new Elemento [3];
+e2 > | ? | ? | ? |
+
+Elemento[] e2 = new Elemento [3];
+ for (int i = 0; i < 3; i ++){
+ e2[i] = new Elemento();
+ }
+e2 > | ? | ? | ? |
+    
+     | x | x | x | 
+
+>>>>>>> 8fbfee88ffe680bc490397f48a351d795f5db157

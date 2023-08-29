@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 struct celula {
     int elemento;
     struct celula *prox;
@@ -13,3 +14,20 @@ nova->elemento = elemento;
 nova->prox = NULL;
 return nova;
  }
+=======
+struct celula {
+    int elemento;
+    struct celula *prox;
+};
+
+typedef struct Celula {
+int elemento;
+struct Celula *prox;
+ } Celula;
+ Celula *novaCelula(int elemento) {
+Celula *nova = (Celula*) malloc(sizeof(Celula));
+nova->elemento = elemento;
+nova->prox = NULL;
+return nova;
+ }
+>>>>>>> 8fbfee88ffe680bc490397f48a351d795f5db157
