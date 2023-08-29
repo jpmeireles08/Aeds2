@@ -2,36 +2,44 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class PesquisaBinaria {
+
+    public static void swap(int[] vetor, int a, int b) {
+        int temp = vetor[a];
+        vetor[a] = vetor[b];
+        vetor[b] = temp;
+    }
+    
+
     public static void main(String[] args) {
         Random random = new Random();
         Scanner sc = new Scanner(System.in);
         boolean resp = false;
-        
+
         System.out.println("Entre com o tamanho do vetor: ");
         int n = sc.nextInt();
-
         int vetor[] = new int[n];
-        
+
         for (int i = 0; i < n; i++) {
             vetor[i] = random.nextInt(100);
         }
 
+        int mov = 0;
         for (int i = 0; i < (n - 1); i++) {
             int menor = i;
-            int temp;
             for (int j = (i + 1); j < n; j++) {
                 if (vetor[menor] > vetor[j]) {
-                    temp = vetor[menor];
-                    vetor[menor] = vetor[j];
-                    vetor[j] = temp;
+                    menor = j;
                 }
             }
-              
+            swap(vetor, menor, i);
+            mov += 3;
         }
 
         for (int i = 0; i < n; i++) {
             System.out.println("Elemento " + i + ": " + vetor[i]);
         }
+
+        System.out.println("Movimentações: " + mov);
 
         int dir = n - 1, esq = 0, meio, diferenca;
         while (esq <= dir) {
