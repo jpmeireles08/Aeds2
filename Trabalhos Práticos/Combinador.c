@@ -1,39 +1,35 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include <string.h>
-#include <stdio.h>
 
 int main () {
-    char x[100];
-while(scanf("%s", x) != EOF)
-{
-    char y[100];
-    scanf("%s", y);
-    char temp;
+    char palavra1[100];
+    scanf("%s", &palavra1);
 
+    char palavra2[100];
+    scanf("%s", &palavra2);
 
+    int x = strlen(palavra1);
+    int y = strlen(palavra2);
 
-    if (strlen(x) > strlen(y)) {
-        for (int i = 0; i < strlen(x); i++) {
-            if (i < strlen(y)) {
-
-                printf("%c", x[i]);
-                printf("%c", y[i]);
-            } else {
-                printf("%c", x[i]);
-
-            }
+    if (x > y) {
+        for (int i = 0; i < x; i++) {
+            if (i < y) {
+            printf("%c", palavra1[i]);
+            printf("%c", palavra2[i]);
+            } else 
+            printf("%c", palavra1[i]);
         }
     } else {
-        for (int i = 0; i < strlen(y); i++) {
-            if (i < strlen(x)) {
-                printf("%c", x[i]);
-                printf("%c", y[i]);
+        for (int i = 0; i < y; i++) {
+            if (i < x) {
+                printf("%c", palavra1[i]);
+                printf("%c", palavra2[i]);
             } else {
-                printf("%c", y[i]);
+                printf("%c", palavra2[i]);
             }
         }
     }
-    printf("\n");
-}
+
     return 0;
 }
