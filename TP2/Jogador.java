@@ -95,13 +95,41 @@ public class Jogador {
         return estadoNascimento;
     }
 
-    public void imprimir () {
+    public void imprimirDados () {
         System.out.println("[" + getId() + " ## " + getNome() + " ## " + getAltura() + " ## " + getPeso() 
         + " ## " + getAnoNascimento() + " ## " + getUniversidade() + " ## " + getCidadeNascimento() + " ## " +
         getEstadoNascimento() + "]");
     }
 
+    public Jogador clone () {
+        Jogador clone = new Jogador(id, altura, peso, anoNascimento, nome, universidade, cidadeNascimento, estadoNascimento);
+        return clone;
+    }
+
+    public void lerDados () {
+
+    }
+
     public static void main(String[] args) {
 
+        String palavra = "";
+
+        while (!comparaString(palavra, "FIM")) {
+            palavra = MyIO.readLine();
+        }
+    }
+
+    public static boolean comparaString (String palavra1, String palavra2) {
+        if (palavra1.length() != palavra2.length()) {
+            return false;
+        }
+
+        for (int i = 0; i < palavra2.length(); i++) {
+            if (palavra1.charAt(i) != palavra2.charAt(i)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
