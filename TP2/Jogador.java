@@ -1,4 +1,6 @@
-public class Jogador {
+import java.io.RandomAccessFile;
+
+class Atleta {
 
     private int id;
     private String nome;
@@ -9,7 +11,7 @@ public class Jogador {
     private String cidadeNascimento;
     private String estadoNascimento;
 
-    public Jogador() {
+    public Atleta() {
         id = 0;
         altura = 0;
         peso = 0;
@@ -20,8 +22,8 @@ public class Jogador {
         estadoNascimento = "";
     }
 
-    public Jogador (int id, int altura, int peso, int anoNascimento, String nome, String universidade, 
-    String cidadeNascimento, String estadoNascimento) {
+    public Atleta(int id, int altura, int peso, int anoNascimento, String nome, String universidade,
+            String cidadeNascimento, String estadoNascimento) {
         this.id = id;
         this.altura = altura;
         this.peso = peso;
@@ -32,94 +34,154 @@ public class Jogador {
         this.estadoNascimento = estadoNascimento;
     }
 
-    public void setId (int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public void setAltura (int altura) {
+    public void setAltura(int altura) {
         this.altura = altura;
     }
 
-    public void setPeso (int peso) {
+    public void setPeso(int peso) {
         this.peso = peso;
     }
 
-    public void setAnoNascimento (int anoNascimento) {
+    public void setAnoNascimento(int anoNascimento) {
         this.anoNascimento = anoNascimento;
     }
-    public void setNome (String nome) {
+
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void setUniversidade (String universidade) {
+    public void setUniversidade(String universidade) {
         this.universidade = universidade;
     }
 
-    public void setCidadeNascimento (String cidadeNascimento) {
+    public void setCidadeNascimento(String cidadeNascimento) {
         this.cidadeNascimento = cidadeNascimento;
     }
 
-    public void setEstadoNascimento (String estadoNascimento) {
+    public void setEstadoNascimento(String estadoNascimento) {
         this.estadoNascimento = estadoNascimento;
     }
 
-    public int getId () {
+    public int getId() {
         return id;
     }
 
-    public int getAltura () {
+    public int getAltura() {
         return altura;
     }
 
-    public int getPeso () {
+    public int getPeso() {
         return peso;
     }
 
-    public int getAnoNascimento () {
+    public int getAnoNascimento() {
         return anoNascimento;
     }
 
-    public String getNome () {
+    public String getNome() {
         return nome;
     }
 
-    public String getUniversidade () {
+    public String getUniversidade() {
         return universidade;
     }
 
-    public String getCidadeNascimento () {
+    public String getCidadeNascimento() {
         return cidadeNascimento;
     }
 
-    public String getEstadoNascimento () {
+    public String getEstadoNascimento() {
         return estadoNascimento;
     }
 
-    public void imprimirDados () {
-        System.out.println("[" + getId() + " ## " + getNome() + " ## " + getAltura() + " ## " + getPeso() 
-        + " ## " + getAnoNascimento() + " ## " + getUniversidade() + " ## " + getCidadeNascimento() + " ## " +
-        getEstadoNascimento() + "]");
+    public void imprimirDados() {
+        System.out.println("[" + getId() + " ## " + getNome() + " ## " + getAltura() + " ## " + getPeso()
+                + " ## " + getUniversidade() + " ## " + getAnoNascimento() + " ## " + getCidadeNascimento() + " ## " +
+                getEstadoNascimento() + "]");
     }
 
-    public Jogador clone () {
-        Jogador clone = new Jogador(id, altura, peso, anoNascimento, nome, universidade, cidadeNascimento, estadoNascimento);
+    public Atleta clone() {
+        Atleta clone = new Atleta(id, altura, peso, anoNascimento, nome, universidade, cidadeNascimento,
+                estadoNascimento);
         return clone;
     }
 
-    public void lerDados () {
+    public void lerDados(String id) throws Exception {
 
+        RandomAccessFile arqJogador = new RandomAccessFile(
+                "C:\\Users\\meire\\Repositório Local\\Aeds2\\TP2\\players.csv",
+                "r");
+
+        String linha;
+
+        arqJogador.seek(60);
+
+        while ((linha = arqJogador.readLine()) != null) {
+            String[] identificador = linha.split(",");
+
+            while (identificador.length < 8) {
+                linha += ", ";
+                identificador = linha.split(",");
+            }
+
+
+            if (identificador.length >= 8 && identificador[0].equals(id)) {
+                setId(Integer.parseInt(id));
+                setNome((identificador[1]));
+                setAltura(Integer.parseInt(identificador[2]));
+                setPeso(Integer.parseInt(identificador[3]));
+                setAnoNascimento(Integer.parseInt(identificador[5]));
+
+                if (identificador[6].isEmpty() || identificador[6].equals("")) {
+                    setCidadeNascimento("nao informado");
+                } else {
+                    setCidadeNascimento(identificador[6]);
+                }
+
+                
+                if (identificador[7].isEmpty() || identificador[7].equals("")) {
+                    setEstadoNascimento("nao informado");
+                } else {
+                    setEstadoNascimento(identificador[7]);
+                }
+
+                if (identificador[4].isEmpty() || identificador[4].equals("")) {
+                    setUniversidade(("nao informado"));
+                } else {
+                    setUniversidade(identificador[4]);
+                }
+
+                imprimirDados();
+                break;
+            }
+        }
+
+        arqJogador.close();
     }
 
-    public static void main(String[] args) {
+}
 
-        String palavra = "";
+public class Jogador {
+    public static void main(String[] args) throws Exception {
 
-        while (!comparaString(palavra, "FIM")) {
-            palavra = MyIO.readLine();
+        Atleta jogadores[] = new Atleta[3500];
+        String id = "";
+        int i = 0;
+
+        while (!comparaString(id, "FIM")) {
+            jogadores[i] = new Atleta();
+            id = MyIO.readLine();
+            jogadores[i].lerDados(id);
+
+            i++;
         }
     }
 
-    public static boolean comparaString (String palavra1, String palavra2) {
+    public static boolean comparaString(String palavra1, String palavra2) {
         if (palavra1.length() != palavra2.length()) {
             return false;
         }
