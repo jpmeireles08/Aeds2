@@ -1,4 +1,7 @@
+
 import java.io.RandomAccessFile;
+import java.util.Date;
+
 
 class Atleta {
 
@@ -100,7 +103,7 @@ class Atleta {
 
     public void imprimirDados() {
         System.out.println("[" + getId() + " ## " + getNome() + " ## " + getAltura() + " ## " + getPeso()
-                + " ## " + getUniversidade() + " ## " + getAnoNascimento() + " ## " + getCidadeNascimento() + " ## " +
+                + " ## " + getAnoNascimento() + " ## " + getUniversidade() + " ## " + getCidadeNascimento() + " ## " +
                 getEstadoNascimento() + "]");
     }
 
@@ -113,8 +116,7 @@ class Atleta {
     public void lerDados(String id) throws Exception {
 
         RandomAccessFile arqJogador = new RandomAccessFile(
-                "C:\\Users\\meire\\Repositório Local\\Aeds2\\TP2\\players.csv",
-                "r");
+                "/tmp/players.csv", "r");
 
         String linha;
 
@@ -128,10 +130,9 @@ class Atleta {
                 identificador = linha.split(",");
             }
 
-
             if (identificador.length >= 8 && identificador[0].equals(id)) {
                 setId(Integer.parseInt(id));
-                setNome((identificador[1]));
+                setNome(identificador[1]);
                 setAltura(Integer.parseInt(identificador[2]));
                 setPeso(Integer.parseInt(identificador[3]));
                 setAnoNascimento(Integer.parseInt(identificador[5]));
@@ -142,7 +143,6 @@ class Atleta {
                     setCidadeNascimento(identificador[6]);
                 }
 
-                
                 if (identificador[7].isEmpty() || identificador[7].equals("")) {
                     setEstadoNascimento("nao informado");
                 } else {
@@ -155,7 +155,6 @@ class Atleta {
                     setUniversidade(identificador[4]);
                 }
 
-                imprimirDados();
                 break;
             }
         }
@@ -165,20 +164,66 @@ class Atleta {
 
 }
 
-public class Jogador {
+public class Sequencial {
     public static void main(String[] args) throws Exception {
 
-        Atleta jogadores[] = new Atleta[3500];
-        String id = "";
+        Date novo = new Date();
+
+        Atleta jogadores[] = new Atleta[3922];
+        String id = MyIO.readLine();
         int i = 0;
 
         while (!comparaString(id, "FIM")) {
             jogadores[i] = new Atleta();
-            id = MyIO.readLine();
             jogadores[i].lerDados(id);
-
+            id = MyIO.readLine();
             i++;
         }
+
+        for (int j = 0; j < 3922; j++) {
+            if (jogadores[j] == null) {
+                jogadores[j] = new Atleta();
+            }
+        }
+
+        String nomeJogador = MyIO.readLine();
+        int cont = 0;
+
+        while (!comparaString(nomeJogador, "FIM")) {
+            boolean aux = false;
+            for (int j = 0; j < 3922; j++) {
+                if (nomeJogador.equals(jogadores[j].getNome())) {
+                    MyIO.println("SIM");
+                    j = 3922;
+                    aux = true;
+                    cont++;
+
+                } else {
+                    cont++;
+                }
+                
+            }
+            if (aux == false) {
+                MyIO.println("NAO");
+            }
+
+
+            nomeJogador = MyIO.readLine();
+
+        }
+
+        Date fim = new Date();
+
+        long tempoExec = fim.getTime() - novo.getTime();
+
+        log(tempoExec, cont);
+
+    }
+
+    public static void log(long tempoExecucao, int cont) throws Exception {
+        RandomAccessFile escritor = new RandomAccessFile("matrícula_sequencial.txt", "rw");
+        escritor.writeBytes("802151\t" + tempoExecucao + "\t" + cont);
+        escritor.close();
     }
 
     public static boolean comparaString(String palavra1, String palavra2) {
@@ -194,4 +239,5 @@ public class Jogador {
 
         return true;
     }
+
 }
