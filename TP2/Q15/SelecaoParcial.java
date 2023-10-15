@@ -1,13 +1,10 @@
-package Aeds2.TP2.Q15;
 
+import java.util.Date;
 import java.io.*;
 
-//Selecao parcial Q15
+class SelecaoParcial {
 
-public class SelecaoParcial{
-
-    public static int numComparacoes = 0, numTrocas= 0;
-
+    public static int mov = 0, comp = 0;
     public static SelecaoParcial[] Jogadores;
 
     private int id;
@@ -19,7 +16,6 @@ public class SelecaoParcial{
     private String cidadeNascimento;
     private String estadoNascimento;
 
-    
     public SelecaoParcial() {
         id = 0;
         altura = 0;
@@ -31,7 +27,8 @@ public class SelecaoParcial{
         estadoNascimento = "";
     }
 
-    public SelecaoParcial(int id, String nome, int altura, int peso, String universidade, int anoNascimento , String cidadeNascimento, String estadoNascimento){
+    SelecaoParcial(int id, String nome, int altura, int peso, String universidade, int anoNascimento,
+            String cidadeNascimento, String estadoNascimento) {
         this.setId(id);
         this.setNome(nome);
         this.setAltura(altura);
@@ -41,158 +38,156 @@ public class SelecaoParcial{
         this.setCidadeNacimento(cidadeNascimento);
         this.setEstadoNascimento(estadoNascimento);
     }
-    
-    public void setId(int id){
+
+    public void setId(int id) {
         this.id = id;
     }
 
-    public void setAltura(int altura){
-        if(altura > 1)
-            this.altura = altura;
+    public void setAltura(int altura) {
+        this.altura = altura;
     }
 
-    public void setPeso(int peso){
-        if(peso > 0)
-            this.peso = peso;
+    public void setPeso(int peso) {
+        this.peso = peso;
     }
 
-    public void setAnoNascimento(int anoNascimento){
-        if(anoNascimento > 1900)
-            this.anoNascimento = anoNascimento;
+    public void setAnoNascimento(int anoNascimento) {
+        this.anoNascimento = anoNascimento;
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void setUniversidade(String universidade){
+    public void setUniversidade(String universidade) {
         this.universidade = universidade;
     }
 
-    public void setCidadeNacimento(String cidadeNascimento){
+    public void setCidadeNacimento(String cidadeNascimento) {
         this.cidadeNascimento = cidadeNascimento;
     }
 
-    public void setEstadoNascimento(String estadoNascimento){
+    public void setEstadoNascimento(String estadoNascimento) {
         this.estadoNascimento = estadoNascimento;
     }
-    
-    public String getNome(){
+
+    public String getNome() {
         return this.nome;
     }
 
-    public String getUniversidade(){
+    public String getUniversidade() {
         return this.universidade;
     }
 
-    public String getCidadeNacimento(){
+    public String getCidadeNacimento() {
         return this.cidadeNascimento;
     }
 
-    public String getEstadoNascimento(){
+    public String getEstadoNascimento() {
         return this.estadoNascimento;
     }
 
-    public int getId(){
+    public int getId() {
         return this.id;
     }
 
-    public int getAltura(){
+    public int getAltura() {
         return this.altura;
     }
 
-    public int getPeso(){
+    public int getPeso() {
         return this.peso;
     }
 
-    public int getAnoNascimento(){
+    public int getAnoNascimento() {
         return this.anoNascimento;
     }
 
-    
+    public static String[] lerDados() throws Exception {
 
-    public SelecaoParcial clone (SelecaoParcial J){
-        SelecaoParcial clone = new SelecaoParcial();
-        clone.setAltura(getAltura());
-        clone.setPeso(getPeso());
-        clone.setAnoNascimento(getAnoNascimento());
-        return clone;
-    }
-
-    
-
-    public static String[] lerDados() throws Exception{
-    
         String[] entrada = new String[4000];
-        int n = 0;
-        
-  
-        RandomAccessFile leitor = new RandomAccessFile("C:\\Users\\meire\\Repositório Local\\Aeds2\\TP2\\players.csv", "rw");
-        
-        leitor.seek(60);
+        int num = 0;
+
+        RandomAccessFile arqJogador = new RandomAccessFile("C:\\Users\\João\\Documents\\Aeds2\\TP2\\players.csv", "rw");
+
+        arqJogador.seek(60);
 
         do {
-            entrada[n] = leitor.readLine();
-        } while (entrada[n++] != null);
+            entrada[num] = arqJogador.readLine();
+        } while (entrada[num++] != null);
+        num--;
 
-        n--;
-
-        for(int i = 1; i < n; i++){
-            if(entrada[i].contains(",,")){
+        for (int i = 1; i < num; i++) {
+            if (entrada[i].contains(",,")) {
                 entrada[i] = entrada[i].replaceAll(",,", ",nao informado,");
-                
+
             }
-            int tam = entrada[i].length()-1;
-            if(entrada[i].charAt(tam) == ','){
-                entrada[i] += "nao informado";   
+            int tam = entrada[i].length() - 1;
+
+            if (entrada[i].charAt(tam) == ',') {
+                entrada[i] += "nao informado";
             }
         }
 
-        leitor.close();
+        arqJogador.close();
         return entrada;
+
     }
 
-    public void salvarDados(int id, String[] dadosArquivo) throws Exception{
-        
-        String[] salvar = dadosArquivo[id].split(",");
-        this.setId(Integer.parseInt(salvar[0]));
-        this.setNome(salvar[1]);
-        this.setAltura(Integer.parseInt(salvar[2]));
-        this.setPeso(Integer.parseInt(salvar[3]));
-        this.setUniversidade(salvar[4]);
-        this.setAnoNascimento(Integer.parseInt(salvar[5]));
-        this.setCidadeNacimento(salvar[6]);
-        this.setEstadoNascimento(salvar[7]);
-        
+    public void clone(SelecaoParcial S) {
+        if (S != null) {
+            this.setId(S.getId());
+            this.setCidadeNacimento(S.getCidadeNacimento());
+            this.setEstadoNascimento(S.getEstadoNascimento());
+            this.setNome(S.getNome());
+            this.setAltura(S.getAltura());
+            this.setPeso(S.getPeso());
+            this.setAnoNascimento(S.getAnoNascimento());
+            this.setUniversidade(S.getUniversidade());
+        }
     }
 
-    public void imprimir(){
-        MyIO.println("[" + getId() + " ## " + getNome() + " ## " + getAltura() + " ## " + getPeso() + " ## " +  getAnoNascimento()
-        + " ## " + getUniversidade()+ " ## " + getCidadeNacimento() + " ## " + getEstadoNascimento() + "]");
+    public void salvarDados(int i, String[] saida) throws Exception {
+
+        String[] identificador = saida[i].split(",");
+        this.setId(Integer.parseInt(identificador[0]));
+        this.setNome(identificador[1]);
+        this.setAltura(Integer.parseInt(identificador[2]));
+        this.setPeso(Integer.parseInt(identificador[3]));
+        this.setUniversidade(identificador[4]);
+        this.setAnoNascimento(Integer.parseInt(identificador[5]));
+        this.setCidadeNacimento(identificador[6]);
+        this.setEstadoNascimento(identificador[7]);
+
+    }
+
+    public void imprimir() {
+        MyIO.println("[" + getId() + " ## " + getNome() + " ## " + getAltura() + " ## " + getPeso() + " ## "
+                + getAnoNascimento()
+                + " ## " + getUniversidade() + " ## " + getCidadeNacimento() + " ## " + getEstadoNascimento() + "]");
     }
 
     public static void swap(int i, int j) {
         SelecaoParcial temp = Jogadores[i];
         Jogadores[i] = Jogadores[j];
         Jogadores[j] = temp;
-        numTrocas += 3;
-     }
-  
+        mov += 3;
+    }
 
-     public static void selecaoParcial(SelecaoParcial[] jogadores, int n) {
+    public static void selecaoParcial(SelecaoParcial[] jogadores, int n) {
         int aux = 0;
 
         for (int j = 0; j < n - 1; j++) {
             int menorIndice = j;
-        
+
             for (int k = j + 1; k < n; k++) {
                 aux = jogadores[k].getNome().compareTo(jogadores[menorIndice].getNome());
-        
+
                 if (aux < 0) {
                     menorIndice = k;
                 }
             }
-        
+
             if (menorIndice != j) {
                 SelecaoParcial temp = jogadores[j];
                 jogadores[j] = jogadores[menorIndice];
@@ -201,35 +196,37 @@ public class SelecaoParcial{
         }
     }
 
-        
-    public static void main(String[] args) throws Exception{
-        
-        String[] entrada = new String[1000];
-        int n = 0;
-        entrada[n] = MyIO.readLine();
-       
-        while(entrada[n].equals("FIM") == false){
-            n++;
-            entrada[n] = MyIO.readLine();
+    public static void main(String[] args) throws Exception {
+
+        Date novo = new Date();
+
+        String[] comeco = new String[1000];
+        int num = 0;
+
+        comeco[num] = MyIO.readLine();
+
+        while (!comparaString(comeco[num], "FIM")) {
+            num++;
+            comeco[num] = MyIO.readLine();
         }
 
-        String[] dadosArquivo = lerDados();
+        String[] saida = lerDados();
 
-        Jogadores = new SelecaoParcial[n];
+        Jogadores = new SelecaoParcial[num];
 
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < num; i++) {
             Jogadores[i] = new SelecaoParcial();
-            Jogadores[i].salvarDados(Integer.parseInt(entrada[i]), dadosArquivo);
+            Jogadores[i].salvarDados(Integer.parseInt(comeco[i]), saida);
         }
 
         int aux = 0;
 
-        for (int j = 0; j < n - 1; j++) {
+        for (int j = 0; j < num - 1; j++) {
             int menorIndice = j;
         
-            for (int k = j + 1; k < n; k++) {
+            for (int k = j + 1; k < num; k++) {
                 aux = Jogadores[k].getNome().compareTo(Jogadores[menorIndice].getNome());
-                numComparacoes++;
+                comp++;
         
                 if (aux < 0) {
                     menorIndice = k;
@@ -243,16 +240,36 @@ public class SelecaoParcial{
             }
         }
 
+        selecaoParcial(Jogadores, num);
 
-
-        selecaoParcial(Jogadores, n);
-
-        for(int i = 0; i < 10; i++)
+        for (int i = 0; i < num; i++) {
             Jogadores[i].imprimir();
+        }
 
-        
-        
-        
+        Date fim = new Date();
+
+        long tempoExec = fim.getTime() - novo.getTime();
+
+        log(comp, mov, tempoExec);
     }
 
+    public static void log(int comp, int mov, long tempoExecucao) throws Exception {
+        RandomAccessFile arquivoMatricula = new RandomAccessFile("matrícula_heapsort.txt", "rw");
+        arquivoMatricula.writeBytes("802151\t" + comp + "\t" + mov + "\t" + tempoExecucao);
+        arquivoMatricula.close();
+    }
+
+    public static boolean comparaString(String palavra1, String palavra2) {
+        if (palavra1.length() != palavra2.length()) {
+            return false;
+        }
+
+        for (int i = 0; i < palavra2.length(); i++) {
+            if (palavra1.charAt(i) != palavra2.charAt(i)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

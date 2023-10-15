@@ -1,4 +1,3 @@
-package Aeds2.TP2.Q15;
 
 import java.io.*;
 import java.nio.charset.*;

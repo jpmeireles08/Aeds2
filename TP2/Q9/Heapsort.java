@@ -3,7 +3,7 @@ package Aeds2.TP2.Q9;
 import java.util.Date;
 import java.io.*; 
 
-    class Heapsort{
+    class Heapsort {
 
     public static int mov = 0, comp = 0;
     public static Heapsort[] Jogadores;
@@ -113,7 +113,7 @@ import java.io.*;
         String[] entrada = new String[4000];
         int num = 0;
 
-        RandomAccessFile arqJogador = new RandomAccessFile("/tmp/players.csv", "rw");
+        RandomAccessFile arqJogador = new RandomAccessFile("C:\\Users\\João\\Documents\\Aeds2\\TP2\\players.csv", "rw");
         
         arqJogador.seek(60);
         
